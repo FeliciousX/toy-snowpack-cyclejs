@@ -1,0 +1,41 @@
+{
+  "name": "toy-snowpack-cycle",
+  "version": "1.0.0",
+  "description": "toy snowpack cycle",
+  "main": "index.js",
+  "scripts": {
+    "start": "serve",
+    "build": "babel --extensions \".ts\" src/ --out-dir lib",
+    "dev": "npm run build -- --watch",
+    "postinstall": "snowpack",
+    "typecheck": "tsc --project tsconfig.json --noEmit"
+  },
+  "author": "FeliciousX",
+  "license": "MIT",
+  "dependencies": {
+    "@cycle/dom": "^22.4.0",
+    "@cycle/rxjs-run": "^10.4.0",
+    "@cycle/state": "^1.4.0",
+    "rxjs": "^6.3.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.0",
+    "@babel/core": "^7.8.0",
+    "@babel/preset-typescript": "^7.8.0",
+    "serve": "^11.3.0",
+    "snowpack": "^1.0.3",
+    "typescript": "^3.7.4"
+  },
+  "snowpack": {
+    "webDependencies": [
+      "@cycle/dom",
+      "@cycle/state",
+      "@cycle/rxjs-run",
+      "rxjs",
+      "rxjs/operators"
+    ],
+    "dedupe": [
+      "rxjs"
+    ]
+  }
+}
